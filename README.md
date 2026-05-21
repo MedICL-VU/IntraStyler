@@ -1,6 +1,6 @@
 # IntraStyler: Intra-Domain Style Synthesis for Cross-Modality MRI Domain Adaptation
 
-**MICCAI 2026 (Early Accept, top 9%)** | [Paper](#) | [MedICL Lab](https://github.com/MedICL-VU)
+**MICCAI 2026 (Early Accept, top 9%)** | [Paper](assets/paper.pdf) | [MedICL Lab](https://github.com/MedICL-VU)
 
 > Han Liu, Yubo Fan, Hao Li, Dewei Hu, Daniel Moyer, Zhoubing Xu, Benoit Dawant, Ipek Oguz
 
@@ -9,6 +9,10 @@
 **IntraStyler** is a 3D unpaired image translation method that automatically discovers fine-grained intra-domain styles without any predefined sub-domains, and synthesizes diverse target domain images using per-image style references. It is built upon the **1st place CrossMoDA challenge solution** and further advances it by generating more diverse synthetic data and achieving more reliable downstream segmentation.
 
 ### Key Idea
+
+<p align="center">
+  <img src="assets/fig1.png" width="90%"/>
+</p>
 
 In cross-modality domain adaptation, images from the same target domain (e.g., T2 MRI) often exhibit substantial appearance variation due to different scanners, field strengths, and acquisition protocols. Previous methods require predefined sub-domain labels to synthesize diverse styles, but such labels are often unavailable or too coarse. **IntraStyler treats each target domain image as its own style reference**, enabling fine-grained style control without any sub-domain annotations.
 
@@ -20,6 +24,10 @@ In cross-modality domain adaptation, images from the same target domain (e.g., T
 - **State-of-the-art performance**: Achieves superior downstream segmentation on the CrossMoDA challenge benchmark compared to prior methods.
 
 ## Method
+
+<p align="center">
+  <img src="assets/fig2.png" width="90%"/>
+</p>
 
 IntraStyler consists of two main components:
 
@@ -41,6 +49,10 @@ where $\lambda_{\text{style}} = \lambda_{\text{con}} = 5$, style vector dimensio
 Perturbations include random contrast adjustment, Gaussian smoothing, Gaussian noise, bias field corruption, and random mixtures. These simulate dominant physical sources of MRI appearance variation.
 
 ### Style Interpolation
+
+<p align="center">
+  <img src="assets/fig3.png" width="90%"/>
+</p>
 
 Given two reference style embeddings $v_0$ and $v_1$, new styles can be smoothly interpolated via SLERP:
 
@@ -124,6 +136,14 @@ python get_embeddings.py -n <experiment_name> --model style --netG resnet_9block
 Segmentation uses [nnU-Net](https://github.com/MIC-DKFZ/nnUNet). See `segmentation/` for details.
 
 ## Results
+
+<p align="center">
+  <img src="assets/fig4.png" width="90%"/>
+</p>
+
+<p align="center">
+  <img src="assets/fig5.png" width="90%"/>
+</p>
 
 IntraStyler achieves state-of-the-art segmentation on the CrossMoDA benchmark, outperforming all sub-domain-based methods with fewer failure cases and higher robustness across heterogeneous scanners. See the paper for detailed quantitative comparisons.
 

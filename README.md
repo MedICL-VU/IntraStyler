@@ -11,7 +11,7 @@
 ### Key Idea
 
 <p align="center">
-  <img src="assets/fig1.pdf" width="90%"/>
+  <img src="assets/fig1.png" width="90%"/>
 </p>
 
 In cross-modality domain adaptation, images from the same target domain (e.g., T2 MRI) often exhibit substantial appearance variation due to different scanners, field strengths, and acquisition protocols. Previous methods require predefined sub-domain labels to synthesize diverse styles, but such labels are often unavailable or too coarse. **IntraStyler treats each target domain image as its own style reference**, enabling fine-grained style control without any sub-domain annotations.
@@ -26,7 +26,7 @@ In cross-modality domain adaptation, images from the same target domain (e.g., T
 ## Method
 
 <p align="center">
-  <img src="assets/fig2.pdf" width="90%"/>
+  <img src="assets/fig2.png" width="90%"/>
 </p>
 
 IntraStyler consists of two main components:
@@ -51,7 +51,7 @@ Perturbations include random contrast adjustment, Gaussian smoothing, Gaussian n
 ### Style Interpolation
 
 <p align="center">
-  <img src="assets/fig3.pdf" width="90%"/>
+  <img src="assets/fig3.png" width="90%"/>
 </p>
 
 Given two reference style embeddings $v_0$ and $v_1$, new styles can be smoothly interpolated via SLERP:
@@ -138,11 +138,7 @@ Segmentation uses [nnU-Net](https://github.com/MIC-DKFZ/nnUNet). See `segmentati
 ## Results
 
 <p align="center">
-  <img src="assets/fig4.pdf" width="90%"/>
-</p>
-
-<p align="center">
-  <img src="assets/fig5.pdf" width="90%"/>
+  <img src="assets/fig4.png" width="90%"/>
 </p>
 
 IntraStyler achieves state-of-the-art segmentation on the CrossMoDA benchmark, outperforming all sub-domain-based methods with fewer failure cases and higher robustness across heterogeneous scanners. See the paper for detailed quantitative comparisons.
